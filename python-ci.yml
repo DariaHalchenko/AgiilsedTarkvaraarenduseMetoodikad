@@ -1,0 +1,21 @@
+name: Python CI 
+
+on: [push]  
+
+jobs:
+  build:  
+    runs-on: ubuntu-latest  
+
+    steps:  
+      - uses: actions/checkout@v2  
+
+      - name: Pythoni installimine
+        uses: actions/setup-python@v2  
+        with:
+          python-version: 3.9  
+
+      - name: Paigalda sõltuvused
+        run: pip install pytest 
+
+      - name: Käivita testid
+        run: pytest  
